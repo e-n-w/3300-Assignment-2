@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         val buttonplus = findViewById<Button>(R.id.buttonplus)
 
         val buttonequals = findViewById<Button>(R.id.buttonequals)
+        val buttonclear = findViewById<Button>(R.id.buttonclear)
+        val buttonback = findViewById<Button>(R.id.buttonback)
 
         val buttonList = listOf(
             button1,
@@ -54,7 +56,13 @@ class MainActivity : AppCompatActivity() {
         buttonequals.setOnClickListener {
             calcText.setText(calculate(calcText.text.toString()))
         }
-
+        buttonclear.setOnClickListener {
+            calcText.setText("")
+        }
+        buttonback.setOnClickListener {
+            val newText = calcText.text.toString().substring(0, calcText.text.lastIndex)
+            calcText.setText(newText)
+        }
     }
 }
 
