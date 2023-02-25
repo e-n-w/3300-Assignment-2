@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         val button8 = findViewById<Button>(R.id.button8)
         val button9 = findViewById<Button>(R.id.button9)
         val button0 = findViewById<Button>(R.id.button0)
+        val buttondot = findViewById<Button>(R.id.buttondot)
         val buttondivide = findViewById<Button>(R.id.buttondivide)
         val buttonmultiply = findViewById<Button>(R.id.buttonmultiply)
         val buttonminus = findViewById<Button>(R.id.buttonminus)
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             button8,
             button9,
             button0,
+            buttondot,
             buttondivide,
             buttonmultiply,
             buttonplus,
@@ -72,12 +74,12 @@ fun calculate(str: String) : String{
     }
     for(i in str.indices){
         if(str[i] == '*' || str[i] == '/'){
-            var j = i
-            var k = i
-            while(j >= 0 && (str[j] != '+' || str[j] != '-' )) {
+            var j = i - 1
+            var k = i + 1
+            while(j >= 0 && (str[j] != '+' && str[j] != '-' )) {
                 j--
             }
-            while(k < str.length && (str[k] != '*' || str[k] != '/' || str[k] != '+' || str[k] != '-' )){
+            while(k < str.length && (str[k] != '*' && str[k] != '/' && str[k] != '+' && str[k] != '-' )){
                 k++
             }
             val left = str.substring(j + 1, i)
